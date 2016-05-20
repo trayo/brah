@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+$:.unshift File.dirname(__FILE__) + '/../lib'
+require "slop"
+require "brah"
+require "brah/version"
+
+opts = Slop.parse do |o|
+  o.banner = "usage: brah [OPTIONS]"
+  o.bool '-h', '--help', 'displays this page'
+  o.on '-v', '--version', 'displays the version' do
+    puts VundleMigrator::VERSION
+    exit
+  end
+end
+
+if opts.help?
+  puts opts
+  exit
+end
+
+remote_output = `git remote -v`
+
+Brah.run(remote_output)
