@@ -1,12 +1,12 @@
 require "brah/version"
 
 module Brah
+
+  def self.run(git_remote_output)
+    Brah.new(git_remote_output).run
+  end
+
   class Brah
-
-    def self.run(git_remote_output)
-      new(git_remote_output)
-    end
-
     attr_reader :command
 
     def initialize(git_remote_output)
