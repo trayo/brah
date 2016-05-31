@@ -39,7 +39,7 @@ class BrahTest < Minitest::Test
     assert brah.run, "Expected brah.run to be true, but it was false"
   end
 
-  def test_it_can_open_a_public_github_ssh_link
+  def test_it_can_open_a_private_github_ssh_link
     git_remote_ssh_private = "origin\tgit@github.enterprise.com/trayo/brah.git (fetch)"
 
     brah = Brah::Brah.new(git_remote_ssh_private)
