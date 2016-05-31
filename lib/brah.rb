@@ -1,5 +1,3 @@
-require "brah/version"
-
 module Brah
 
   def self.run(git_remote_output)
