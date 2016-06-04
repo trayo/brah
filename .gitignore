@@ -7,3 +7,5 @@
 /pkg/
 /spec/reports/
 /tmp/
+.dockerignore
+/.rake_tasks*
