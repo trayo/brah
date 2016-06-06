@@ -20,7 +20,10 @@ module Brah
     private
 
       def convert_ssh_to_http(git_remote_output)
-        git_remote_output.match(/origin\t(.+)\.git/)[1].gsub("com:", "com/").gsub("git@", "https://")
+        git_remote_output.match(/origin\t(\S+)/)[1].
+          gsub(/\.git$/, "").
+          gsub("com:", "com/").
+          gsub("git@", "https://")
       end
   end
 end

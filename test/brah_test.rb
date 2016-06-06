@@ -59,6 +59,26 @@ class BrahTest < Minitest::Test
     assert brah.run, "Expected brah.run to be true, but it was false"
   end
 
+  def test_when_public_remote_does_not_end_with_dot_git
+    git_remote_without_dot_git = "origin\tgit@github.com:trayo/brah (fetch)"
+
+    brah = Brah::Brah.new(git_remote_without_dot_git)
+    brah.expects(:system).with("open #{PUBLIC_URL}").returns(true).once
+
+    assert_equal brah.command, "open https://github.com/trayo/brah"
+    assert brah.run, "Expected brah.run to be true, but it was false"
+  end
+
+  def test_when_private_remote_does_not_end_with_dot_git
+    git_remote_without_dot_git = "origin\tgit@github.enterprise.com:trayo/brah (fetch)"
+
+    brah = Brah::Brah.new(git_remote_without_dot_git)
+    brah.expects(:system).with("open #{PRIVATE_URL}").returns(true).once
+
+    assert_equal brah.command, "open https://github.enterprise.com/trayo/brah"
+    assert brah.run, "Expected brah.run to be true, but it was false"
+  end
+
   def test_when_there_are_no_remotes_found
     no_remotes = ""
 
