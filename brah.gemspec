@@ -18,10 +18,10 @@ Gem::Specification.new do |spec|
   spec.executables   = ["brah"]
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency "bundler", "~> 1.12"
-  spec.add_development_dependency "minitest", "~> 5.0"
-  spec.add_development_dependency "mocha", "~> 1.1"
-  spec.add_development_dependency "rake", "~> 10.0"
-  spec.add_development_dependency "slop", "~> 4.3"
-  spec.add_runtime_dependency "slop", "~> 4.3"
+  spec.add_development_dependency "bundler", "~> 2.0"
+  spec.add_development_dependency "minitest", "~> 5.11", '>= 5.11.3'
+  spec.add_development_dependency "mocha", "~> 1.8", '>= 1.8.0'
+  spec.add_development_dependency "rake", "~> 10.5", '>= 10.5.0'
+  spec.add_development_dependency "slop", "~> 4.6", '>= 4.6.2'
+  spec.add_runtime_dependency "slop", "~> 4.6", '>= 4.6.2'
 end
